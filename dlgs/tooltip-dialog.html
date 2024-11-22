@@ -1,0 +1,17 @@
+<div class="input-dialog dialog modal" data-title="Javazzar: Tip of the Day">
+    <div class="dialog-body" style="margin-top: -20px; width: 520px; height: 300px; overflow: scroll;">
+        <div style="max-width: 500px;" data-element-id="tipDescription">
+            <p class="tip-description", style="color: white;font-size: 1.15rem;">
+                {{{description}}}
+            </p>
+        </div>
+        <div class="tip-image" style="height: 200px; width: 500px; background-image: url({{{image}}}); background-size: contain; background-repeat: no-repeat;" data-element-id="tipImage"></div>
+    </div>
+    <div class="dialog-footer">
+        <input type="checkbox" style="float:left;" data-input-id="dontShowTips" id="dontShowTips">
+        <label for="dontShowTips" style="float:left;">Don't show tips</label>
+        <button class="k-button" data-button-id="previousTip">Previous Tip</button>
+        <button class="k-button primary" data-button-id="nextTip">Next Tip</button>
+        <button class="k-button dialog-button" data-button-id="cancel">Close</button>
+    </div>
+</div>

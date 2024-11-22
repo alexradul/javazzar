@@ -1,0 +1,67 @@
+#toolbar-extensions-view {
+    background-color: transparent;
+    background-image: url("javazzar.png");
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-clip: content-box;
+    background-size: contain;
+}
+
+.profile-section {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 170px;
+    height: 100%;
+    float: left;
+    box-sizing: border-box;
+}
+
+.tag-section {
+    margin-left: 170px;
+    height: 100%;
+    padding-top: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
+}
+
+.listview{
+    padding: 10px;
+    padding-bottom: 30px;
+}
+
+.profile-footer {
+    position: absolute;
+    bottom: 0px;
+    height: 30px;
+    padding: 10px;
+}
+
+#tag-section-table{
+    border-spacing: 3px;
+}
+
+.plusAlert {
+    background-color:#47d47d;
+    border-radius: 2px;
+    color: white;
+    padding-left: 3px;
+    padding-right: 3px;
+    text-shadow: 0 0 0 white;
+}
+
+#plusUpgrade {
+    position: relative;
+    border-radius: 2px;
+    background-color: #0b5fa5;
+    bottom: 0;
+    float: left;
+    color: white;
+    padding: 5px;
+    border: 0;
+}
+
+.emphasize {
+    color:#fe9940;
+}

@@ -1,0 +1,226 @@
+{
+    "tips":[
+      {
+         "name":"welcome",
+         "category": "introduction",
+         "description":"Welcome to Javazzar Tip of the Day!<br><br>Through this series of short and concise tips, we will try to get you to speed with using Javazzar and developing Java applications from your UML model faster, better, and with more joy! ",
+         "image":"none"
+      }, 
+      {
+         "name":"aboutJavazzar",
+         "category": "introduction",
+         "description":"Javazzar is a modeling and code generation extension for StarUML that connects UML modeling with Java, Spring, Hibernate and Swagger. ",
+         "image":"archetype-white.png"
+      },
+      {
+         "name":"rebelPreferences",
+         "category": "introduction",
+         "description":"To open Javazzar preferences, use the keyboard shortcut <strong class=\"emphasize\">Alt + F5</strong>, or menu <strong class=\"emphasize\">Javazzar -> Configure</strong>. ",
+         "image":"rebelPreferences.png"
+      },
+      {
+         "name":"propertyEditor",
+         "category": "introduction",
+         "description":"<strong class=\"emphasize\">Javazzar Property Editor</strong> gives you the ability to edit different aspects of your UML model. <br><br>To use it, select a model element (such as class), pick up an <strong class=\"emphasize\">aspect</strong> (such as Persistance), and customize it. ",
+         "image":"propertyEditor.png"
+      },
+       {
+          "name":"rootPackageSetup",
+          "category":"java",
+          "description":"As soon as you have created the initial UML model, there is only one thing left to do to generate Java code from the model. You need to set the root package - the starting point of the code generation. <br><br>Select the root package of your model in the StarUML Model Explorer and assign it stereotype <strong class=\"emphasize\">root</strong> in the StarUML Property Editor.",
+          "image":"rootPackage.png",
+          "attrs":{
+             "height":"227px"
+          }
+       },
+       {
+          "name":"codeGeneration",
+          "category":"java",
+          "description":"To generate the Java code from your model, use the keyboard shortcut <strong class=\"emphasize\">F5</strong> or menu <strong class=\"emphasize\">Javazzar -> Generate</strong> instead. ",
+          "image":"rebelGenerateCode.png",
+          "attrs":{
+             "height":"187px"
+          }
+       },
+       {
+          "name":"customPackagePrefix",
+          "category":"java",
+          "description":"To define the package prefix for your project, select the previously defined root package in StarUML Model Explorer and set <strong class=\"emphasize\">Java -> Base package</strong> using Javazzar Property Editor. <br><br>The package prefix will typically be the inverse name of your university or company, for example: <strong class=\"emphasize\">com.archetypesoftware</strong>. ",
+          "image":"packagePrefix.png"
+       },
+       {
+          "name":"projectCodebase",
+          "category":"java",
+          "description":"Project codebase, destination folder for the generated Java source files, needs to be configured only once. <br><br>To setup project codebase, use Javazzar preferences: <strong class=\"emphasize\">Project Settings -> Project Codebase</strong> or simply press <strong class=\"emphasize\">F5</strong> (generate code) and the Javazzar will prompt you to choose the destination folder.",
+          "image":"projectCodebase.png"
+       },
+       {
+          "name":"preservedSection",
+          "category":"java",
+          "description":"Javazzar uses preserved sections, specially formatted code comments, to keep changes that software developer makes to the generated Java code. This simple concept enables the UML model and the generated sources to evolve independently and remain in synch.<br><br>A Javazzar user should take care to do all his customizations within the preserved section blocks. ",
+          "image":"preservedSection.png",
+          "attrs": {
+            "height":"250px"
+         }
+       },
+       {
+          "name":"standardImports",
+          "category":"java",
+          "description":"To define Java imports to be included in all generated source files, use Javazzar preferences: <strong class=\"emphasize\">Additional Settings -> Standard Imports</strong>. <br><br>By default, all generated source files import packages <strong class=\"emphasize\">java.util.*</strong> and <strong class=\"emphasize\">java.time.*</strong>.",
+          "image":"defaultImports.png"
+       },
+       {
+          "name":"orderedAssociations",
+          "category":"java",
+          "description":"To make an association end ordered, select the association end in the class diagram and select <strong class=\"emphasize\">isOrdered</strong> checkbox in the StarUML Property Editor. <br><br>The StarUML will display <strong class=\"emphasize\">{ordered}</strong> label beside the association name and the Javazzar will generate List instead of Set for this association. ",
+          "image":"orderedAssociations.png"
+       },
+       {
+          "name":"customCollections",
+          "category":"java",
+          "description":"Javazzar can generate different implementations of collections for ordered and unordered association ends. <br><br>In <strong class=\"emphasize\">Javazzar Preferences -> Additional Settings</strong>, you can configure Ordered/Unordered collection interfaces and implementations.",
+          "image":"customCollections.png"
+       },
+       {
+          "name":"fluentInterfaces",
+          "category":"java",
+          "description":"To enable method chaining of the generated Java classes, turn on <strong class=\"emphasize\">Generate fluent setters</strong> and <strong class=\"emphasize\">Generate fluent link/unlink methods</strong> in Javazzar Preferences -> Additional Settings.",
+          "image":"methodChaining.png"
+       },
+       {
+          "name":"autoImplementingInterfaces",
+          "category":"java",
+          "description":"If a class implements an interface, Javazzar will generate an empty implementation for all inherited methods. The same applies to a class extending an abstract class. ",
+          "image":"autoImplementation.png"
+       },
+       
+       
+       
+       {
+          "name":"enablePersistence",
+          "category":"persistence",
+          "description":"To turn your classes into Java Persistence API (JPA) entities, switch on <strong class=\"emphasize\">Persistence Settings -> Generate persistence meta-data</strong> in Javazzar preferences.",
+          "image":"enablePersistence.png"
+       },
+       {
+          "name":"serializableEntities",
+          "category":"persistence",
+          "description":"To have all generated JPA entities implement <strong class=\"emphasize\">java.io.Serializable</strong> interface, set <strong class=\"emphasize\">Persistent classes are serializable</strong> Javazzar preference.",
+          "image":"serializableEntities.png"
+       },
+       {
+          "name":"persistentEntity",
+          "category":"persistence",
+          "description":"To make a class persistent, select it in the class diagram - or in the StarUML Model Explorer, select the <strong class=\"emphasize\">Persistence</strong> tab of the Javazzar Property Editor and set <strong class=\"emphasize\">Is persistent</strong> to true. ",
+          "image":"propertyEditor.png"
+       },
+       {
+          "name":"verboseDiagrams",
+          "category":"persistence",
+          "description":"Javazzar properties are StarUML tags/properties, displayed by default on class diagrams. As you use the Javazzar Property Editor, class diagrams may become verbose and ugly. <br><br>To prevent this behavior, select model elements in the diagram, and suppress property display by using the StarUML context menu <strong class=\"emphasize\">Format -> Show Property</strong>, or by using the keyboard shortcut <strong class=\"emphasize\">Ctrl + Shift + P</strong> (Windows/Linux) or <strong class=\"emphasize\">⌘ + ⇧ + P</strong> (OS X). ",
+          "image":"showPropertyToggle.png",
+          "attrs": {
+             "height":"320px"
+          }
+       },
+       {
+         "name":"customIdType",
+         "category":"persistence",
+         "description":"Javazzar automatically adds the <strong class=\"emphasize\">@Id</strong> attribute to persistent classes, sparing you from explicitly defining these attributes in your UML model.<br><br>To customize the type of the @Id attribute, use Javazzar preferences <strong class=\"emphasize\">Persistence Settings -> Java type for entity id</strong>. ",
+         "image":"customIdType.png"
+      },
+       {
+          "name":"equalsPersistence",
+          "category":"persistence",
+          "description":"By default, Javazzar implements <strong class=\"emphasize\">equals()</strong> and <strong class=\"emphasize\">hashCode()</strong> methods based on the value of the @Id attribute for all persistent classes.<br><br>To turn this feature off, switch off Javazzar preference <strong class=\"emphasize\">Persistence Settings -> Generate equals()</strong>.",
+          "image":"generateEquals.png"
+      },
+      {
+         "name":"optionalAttribute",
+         "category":"persistence",
+         "description":"To model an optional/nullable class attribute, set its multiplicity to <strong class=\"emphasize\">0..1</strong>. You can do this using StarUML Property Editor, as well as by typing [0..1] next to the attribute type in the class diagram. <br><br>For instance, you can type: <strong class=\"emphasize\">description: string[0..1]</strong>. ",
+         "image":"optionalAttribute.png",
+         "attrs":{
+            "height": "213px",
+            "width": "495px"
+         }
+      },
+      {
+          "name":"valueTypeClasses",
+          "category":"persistence",
+          "description":"If you label a UML class using the stereotype <strong class=\"emphasize\">valuetype</strong> Javazzar persistence generator will turn it into a JPA <strong class=\"emphasize\">@Embedded</strong>, Value object.",
+          "image":"valuetypeEntity.png",
+          "attrs":{
+            "height": "211px",
+            "width": "492px"
+         }
+      },
+      {
+          "name":"transientAttribute",
+          "category":"persistence",
+          "description":"To make an attribute of a (persistent) class transient, select it in the class diagram - or in the StarUML Model Explorer, select the <strong class=\"emphasize\">Persistence</strong> tab of the Javazzar Property Editor and set <strong class=\"emphasize\">Is transient</strong> to true.  ",
+          "image":"transientAttribute.png",
+          "attrs": {
+             "height": "178px",
+             "width": "500px"
+          }
+      },
+      {
+          "name":"transientAssociationEnd",
+          "category":"persistence",
+          "description":" To make an association end of the persistent class transient, select it in the class diagram - or in the StarUML Model Explorer, select the <strong class=\"emphasize\">Persistence</strong> tab of the Javazzar Property Editor and set <strong class=\"emphasize\">Is transient</strong> to true.",
+          "image":"transientAssociationEnd.png",
+          "attrs":{
+             "height":"181px",
+             "width": "500px"
+          }
+      },
+
+
+
+      {
+          "name":"springCodeGeneration",
+          "category":"spring",
+          "description":" If you are developing a Spring application, Javazzar will help you develop the application faster by automatically creating Spring Data <strong class=\"emphasize\">Repositories</strong>, Spring <strong class=\"emphasize\">Services</strong>, and <strong class=\"emphasize\">REST Controllers</strong> for your persistent classes - the complete REST CRUD functionality out-of-the-box.<br><br>To configure the Javazzar Spring generator, you need to label three packages of your UML model using stereotypes <strong class=\"emphasize\">repository</strong>, <strong class=\"emphasize\">service</strong>, and <strong class=\"emphasize\">controller</strong>.     ",
+          "image":"springSetup.png",
+          "attrs": {
+             "height": "382px",
+             "width": "497px"
+          }
+      },
+      {
+          "name":"freeEditMode",
+          "category":"spring",
+          "description":"While domain classes need to evolve as the UML model changes, using preserved sections isn't the most comfortable approach when we consider other parts of the application. <br><br>That is the reason why Javazzar generated Spring Data <strong class=\"emphasize\">Repositories</strong>, Spring <strong class=\"emphasize\">Services</strong>, and <strong class=\"emphasize\">Controllers</strong> do not contain any preserve sections.<br><br> You can edit and change them freely - their content will never change during the code generation. ",
+          "image":"none",
+          "attrs":{
+             "height":"15px"
+          }
+      },
+      {
+         "name":"suppressSpringGeneration",
+         "category":"spring",
+         "description": "To suppress Spring code generation for a persistent class (JPA Entity), pick up the UML class in the class diagram or StarUML model explorer, select <strong class=\"emphasize\">Spring</strong> profile in the Javazzar Property Editor, and customize the desired behavior. ",
+         "image": "suppressSpring.png"
+      },
+      
+      
+      {
+         "name":"documentationTip",
+         "category":"documentation",
+         "description": "To customize the documentation output format for a package, select the UML package, and customize code generation in the <strong class=\"emphasize\">Documentation profile</strong> of the Javazzar Property Editor.<br><br>You can choose among different options: <strong class=\"emphasize\">inheritFromParent</strong>, <strong class=\"emphasize\">javadoc</strong>, <strong class=\"emphasize\">swagger</strong> and <strong class=\"emphasize\">none</strong>.  ",
+         "image": "documentationProfile.png"
+      },
+      
+      {
+         "name":"lastTip",
+         "category":"lastTip",
+         "description": "You have reached the last tip from our collection. As we are upgrading it over time, be sure to check it out again. If you like it, dislike, or have any suggestions or ideas - let us know, <strong class=\"emphasize\">feedback is always appreciated</strong>.<br><br>For more information about Javazzar, please visit <a href=\"https://github.com/alexradul/javazzar\">the Github page</a>.",
+         "image":"archetype-logo.png",
+         "attrs": {
+            "height": "150px"
+         }
+      }
+
+    ]
+ }

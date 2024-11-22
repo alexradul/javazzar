@@ -1,0 +1,15 @@
+<tr>
+    <td>
+      <div class="name">{{displayName}}</div>
+    </td>
+    <td>
+      <label data-id="{{qualifiedName}}" class="widget k-combo small" >
+        <input type="text" value="{{value}}">
+        <select>
+          {{#options}}
+          <option value="{{value}}">{{display}}</option>
+          {{/options}}
+        </select>
+      </label>
+    </td>
+</tr>

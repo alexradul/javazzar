@@ -1,0 +1,6 @@
+{
+    "F5": "javazzar.assemble",
+    "alt-F5": "javazzar.configure",
+    "ctrl-shift-E": "javazzar.export",
+    "ctrl-alt-F5": "javazzar.overwrite"
+}

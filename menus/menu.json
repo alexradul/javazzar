@@ -1,0 +1,37 @@
+{
+    "menu": [
+      {
+        "id": "menu.javazzar",
+        "label": "Javazzar",
+        "submenu": [
+          {
+            "label": "Generate",
+            "id": "javazzar.assemble",
+            "command": "javazzar.assemble"
+          },
+          {
+            "label": "Configure",
+            "id": "javazzar.configure",
+            "command": "javazzar.configure"
+          },          
+          {
+            "label": "Export Project",
+            "id": "javazzar.export",
+            "command": "javazzar.export"
+          },
+          {
+            "label": "Tip of the Day",
+            "id": "javazzar.tipOfTheDay",
+            "command": "javazzar.tipOfTheDay"
+          },
+          { "type": "separator" },
+          {
+            "label": "About",
+            "id": "javazzar.about",
+            "command": "javazzar.about"
+          }
+        ]
+      }
+    ]
+  }
+  
