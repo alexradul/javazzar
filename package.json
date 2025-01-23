@@ -3,10 +3,11 @@
   "title": "Javazzar",
   "description": "Javazzar is a powerful and time-saving code generator for modern Java. It can do different things: transform your domain model into JPA/Hibernate entities, output model documentation into Swagger annotations, create Spring Controllers, Services and Repositories for your domain classes or let you customize the mapping of your classes into different data formats using Jackson annotations. Also, it preserves your changes to the generated source code.",
   "homepage": "https://github.com/alexradul/javazzar",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "keywords": [
     "Java",
     "Spring",
+    "Spring Data JPA",
     "Hibernate",
     "Jackson",
     "Swagger",
@@ -15,7 +16,8 @@
   ],
   "author": {
     "name": "Aleksandar Radulovic",
-    "email": "aleksandar.radulovic@gmail.com"
+    "email": "aleksandar.radulovic@gmail.com",
+    "url": "https://github.com/alexradul"
   },
   "license": "MIT",
   "engines": {

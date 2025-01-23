@@ -9,8 +9,8 @@
       {
          "name":"aboutJavazzar",
          "category": "introduction",
-         "description":"Javazzar is a modeling and code generation extension for StarUML that connects UML modeling with Java, Spring, Hibernate and Swagger. ",
-         "image":"archetype-white.png"
+         "description":"<br>Javazzar is a modeling and code generation extension for StarUML that connects UML modeling with Java, Spring, Spring Data JPA and Swagger. <br>",
+         "image":"archetype-logo.png"
       },
       {
          "name":"rebelPreferences",

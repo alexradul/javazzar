@@ -110,7 +110,8 @@ class ToolTipManager {
         const setTip = (tip) => {
             $description.html(tip.description);
             if (tip.image) {
-                $image.css("background-image", `url(${tip.image})`);
+                const url = `url('${tip.image}')`;
+                $image.css("background-image", url);
             } else {
                 $image.css("background-image", "");
             }
