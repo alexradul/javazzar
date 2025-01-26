@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
+      PKG_NAME: javazzar
+      PKG_VERSION: 1.0.2
       JAVAZZAR_ARCHIVE: ${{ env.PKG_NAME }}-${{ env.PKG_VERSION }}.zip
 
     steps:
