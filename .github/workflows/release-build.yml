@@ -13,7 +13,6 @@ jobs:
     env:
       PKG_NAME: javazzar
       PKG_VERSION: 1.0.2
-      JAVAZZAR_ARCHIVE: ${{ env.PKG_NAME }}-${{ env.PKG_VERSION }}.zip
 
     steps:
       # Step 1: Check out the repository
@@ -34,11 +33,15 @@ jobs:
       - name: Build with Webpack
         run: npx webpack --mode=production
 
-      # Step 5: Zip the built files into an archive
+      # Step 5: Set JAVAZZAR_ARCHIVE variable
+      - name: Set archive name
+        run: echo "JAVAZZAR_ARCHIVE=${PKG_NAME}-${PKG_VERSION}.zip" >> $GITHUB_ENV
+
+      # Step 6: Zip the built files into an archive
       - name: Archive build output
         run: zip -r ./${{ env.JAVAZZAR_ARCHIVE }} dist/
 
-      # Step 6: Upload built files as release assets
+      # Step 7: Upload built files as release assets
       - name: Upload release assets
         uses: actions/upload-artifact@v3
         with:
