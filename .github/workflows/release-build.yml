@@ -11,6 +11,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Step 0: Enable debug logging
+      - name: Enable debug logging
+        run: |
+          echo "ACTIONS_RUNNER_DEBUG=true" >> $GITHUB_ENV
+          echo "ACTIONS_STEP_DEBUG=true" >> $GITHUB_ENV
+
       # Step 1: Check out the repository
       - name: Checkout code
         uses: actions/checkout@v3
@@ -51,19 +57,32 @@ jobs:
         run: zip -r ./${{ env.JAVAZZAR_ARCHIVE }} javazzar/
 
       # Step 9: Upload built files as release assets
-      - name: Upload release assets
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.JAVAZZAR_ARCHIVE }}
           path: ./${{ env.JAVAZZAR_ARCHIVE }}
 
-      # Step 10: Upload release asset to GitHub Release
+          # Step 10: Get the release upload URL
+      - name: Get release upload URL
+        id: get_release
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const release = await github.repos.getReleaseByTag({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              tag: context.ref.replace('refs/tags/', '')
+            });
+            return release.data.upload_url;
+
+      # Step 11: Upload release asset to GitHub Release
       - name: Upload Release Asset
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: https://api.github.com/repos/alexradul/javazzar/releases/latest
+          upload_url: ${{ steps.get_release.outputs.result }}
           asset_path: ./${{ env.JAVAZZAR_ARCHIVE }}
           asset_name: ${{ env.JAVAZZAR_ARCHIVE }}
           asset_content_type: application/zip
