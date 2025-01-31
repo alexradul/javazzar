@@ -56,19 +56,20 @@ jobs:
         with:
           name: ${{ env.JAVAZZAR_ARCHIVE }}
           path: ./${{ env.JAVAZZAR_ARCHIVE }}
-            # Step 8: Create a release
-            - name: Create GitHub Release
-              id: create_release
-              uses: actions/create-release@v1
-              env:
-                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              with:
-                tag_name: ${{ github.ref }}
-                release_name: ${{ github.ref }}
-                draft: false
-                prerelease: false
 
-      # Step 10: Upload release asset to GitHub Release
+      # Step 10: Create a release
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: ${{ github.ref }}
+          draft: false
+          prerelease: false
+
+      # Step 11: Upload release asset to GitHub Release
       - name: Upload Release Asset
         uses: actions/upload-release-asset@v1
         env:
