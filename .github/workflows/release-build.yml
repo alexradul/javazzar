@@ -62,8 +62,8 @@ jobs:
         with:
           draft: false
           prerelease: false
-          release_name: ${{ github.ref }}
-          tag_name: ${{ github.ref }}
+          release_name: ${{ env.PKG_VERSION }}
+          tag_name: ${{ env.PKG_VERSION }}
         env:
           GITHUB_TOKEN: ${{ github.token }}
 
