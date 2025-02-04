@@ -1,21 +1,15 @@
 name: Release Build
 
 on:
-  release:
-    types:
-      - created
-  workflow_dispatch:
-
+  push:
+    tags:
+      - '*'
 jobs:
   build:
     runs-on: ubuntu-latest
 
-    env:
-      PKG_NAME: javazzar
-      PKG_VERSION: 1.0.2
-      JAVAZZAR_ARCHIVE: ${{ env.PKG_NAME }}-${{ env.PKG_VERSION }}.zip
-
     steps:
+
       # Step 1: Check out the repository
       - name: Checkout code
         uses: actions/checkout@v3
@@ -26,21 +20,60 @@ jobs:
         with:
           node-version: '16' # Specify your Node.js version
 
-      # Step 3: Install dependencies
+      # Step 3: Read package.json
+      - name: Read package.json
+        id: pkg
+        run: |
+          PKG_NAME=$(jq -r '.name' package.json)
+          PKG_VERSION=$(jq -r '.version' package.json)
+          echo "PKG_NAME=$PKG_NAME" >> $GITHUB_ENV
+          echo "PKG_VERSION=$PKG_VERSION" >> $GITHUB_ENV
+
+      # Step 4: Install dependencies
       - name: Install dependencies
         run: npm install
 
-      # Step 4: Run Webpack build
+      # Step 5: Run Webpack build
       - name: Build with Webpack
         run: npx webpack --mode=production
 
-      # Step 5: Zip the built files into an archive
-      - name: Archive build output
-        run: zip -r ./${{ env.JAVAZZAR_ARCHIVE }} dist/
+      # Step 6: Set JAVAZZAR_ARCHIVE variable
+      - name: Set archive name
+        run: echo "JAVAZZAR_ARCHIVE=${PKG_NAME}-${PKG_VERSION}.zip" >> $GITHUB_ENV
 
-      # Step 6: Upload built files as release assets
-      - name: Upload release assets
-        uses: actions/upload-artifact@v3
+        # Step 7: rename dist folder to javazzar
+      - name: Rename dist folder
+        run: mv dist javazzar
+
+      # Step 8: Zip the built files into an archive
+      - name: Archive build output
+        run: zip -r ./${{ env.JAVAZZAR_ARCHIVE }} javazzar/
+
+      # Step 9: Upload built files as release assets
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ env.JAVAZZAR_ARCHIVE }}
           path: ./${{ env.JAVAZZAR_ARCHIVE }}
+
+      - name: release
+        uses: actions/create-release@v1
+        id: create_release
+        with:
+          draft: false
+          prerelease: false
+          release_name: ${{ github.ref }}
+          tag_name: ${{ github.ref }}
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+
+      # Step 10: Upload release asset to GitHub Release
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./${{ env.JAVAZZAR_ARCHIVE }}
+          asset_name: ${{ env.JAVAZZAR_ARCHIVE }}
+          asset_content_type: application/zip
