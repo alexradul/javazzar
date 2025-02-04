@@ -72,7 +72,7 @@ jobs:
             const release = await github.repos.getReleaseByTag({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              tag: context.ref.replace('refs/tags/', '')
+              tag: context.ref.replace('refs/tags/', '1.0.1')
             });
             return release.data.upload_url;
 
