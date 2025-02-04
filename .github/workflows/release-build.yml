@@ -1,21 +1,14 @@
 name: Release Build
 
 on:
-  release:
-    types:
-      - created
-  workflow_dispatch:
-
+  push:
+    tags:
+      - '*'
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 0: Enable debug logging
-      - name: Enable debug logging
-        run: |
-          echo "ACTIONS_RUNNER_DEBUG=true" >> $GITHUB_ENV
-          echo "ACTIONS_STEP_DEBUG=true" >> $GITHUB_ENV
 
       # Step 1: Check out the repository
       - name: Checkout code
@@ -63,26 +56,24 @@ jobs:
           name: ${{ env.JAVAZZAR_ARCHIVE }}
           path: ./${{ env.JAVAZZAR_ARCHIVE }}
 
-          # Step 10: Get the release upload URL
-      - name: Get release upload URL
-        id: get_release
-        uses: actions/github-script@v6
+      - name: release
+        uses: actions/create-release@v1
+        id: create_release
         with:
-          script: |
-            const release = await github.repos.getReleaseByTag({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              tag: context.ref.replace('refs/tags/', '1.0.1')
-            });
-            return release.data.upload_url;
+          draft: false
+          prerelease: false
+          release_name: ${{ github.ref }}
+          tag_name: ${{ github.ref }}
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
 
-      # Step 11: Upload release asset to GitHub Release
+      # Step 10: Upload release asset to GitHub Release
       - name: Upload Release Asset
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ steps.get_release.outputs.result }}
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./${{ env.JAVAZZAR_ARCHIVE }}
           asset_name: ${{ env.JAVAZZAR_ARCHIVE }}
           asset_content_type: application/zip
