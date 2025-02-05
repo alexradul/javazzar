@@ -32,6 +32,8 @@ To generate code, you need to have a StarUML project with a domain model. You ca
 4. Select ```Javazzar -> Generate``` from the menu to generate code, or use the shortcut key ```F5``` instead.
 
 ## Benefits
+### Reducing development complexity
+When modeling your domain, it's enough to mark a class persistent and Javazzar will turn it into a JPA entity. You don't need to think about all the different annotations and details you need to apply, you keep your thoughts at higher level of abstractions while already making a step closer to production! 
 ### Clear Design
 If you focus on design - and not on low-level details, there are great chances you will have a clear picture and define a good distribution of responsibilities between your components.
 ### Fast Development
